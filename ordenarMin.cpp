@@ -24,9 +24,10 @@ int main(void){
 		min = arr[i], posmenor = i;
 		
 		//Check for minor
-		for (int j=0; j<N; j++){
+		for (int j=i; j<N; j++){
 			if (min > arr[j]){
 				min = arr[j], posmenor = j;
+				cout << min << " " << posmenor << endl;
 			}
 		}
 		
