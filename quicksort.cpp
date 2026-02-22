@@ -37,7 +37,7 @@ void printarr(int n, int a[]){
 void quicksort(int min, int max, int a[]){
     int temp;
     
-    if (min >= max){
+    if (max - min <= 1){
         if (a[max]<a[min]){
             temp = a[max];
             a[max] = a[min];
@@ -58,6 +58,11 @@ void quicksort(int min, int max, int a[]){
             p++;
         }
     }
+
+    if (p == min){
+        return;
+    }
+
     quicksort(min, p-1, a);
     quicksort(p, max, a);
 }
