@@ -38,7 +38,8 @@ void quicksort(int min, int max, int a[]){
     int temp;
     
     if (max - min <= 1){
-        if (a[max]<a[min]){
+        if (max<min) return;
+        else if (a[max]<a[min]){
             temp = a[max];
             a[max] = a[min];
             a[min] = temp;
@@ -59,11 +60,8 @@ void quicksort(int min, int max, int a[]){
         }
     }
 
-    if (p == min){
-        return;
-    }
 
-    quicksort(min, p-1, a);
-    quicksort(p, max, a);
+    quicksort(min, p, a);
+    quicksort(p+1, max, a);
 }
 
