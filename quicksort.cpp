@@ -38,19 +38,14 @@ void quicksort(int min, int max, int a[]){
     int temp;
     
     if (min >= max){
-        if (a[max]<a[min]){
-            temp = a[max];
-            a[max] = a[min];
-            a[min] = temp;
-        }
         return;
     }
 
     int pivot;
     pivot = a[min];
 
-    int p=min;
-    for (int i=min; i<=max; i++){
+    int p=min+1;
+    for (int i=min+1; i<=max; i++){
         if (a[i] < pivot){
             temp = a[p];
             a[p] = a[i];
@@ -58,7 +53,11 @@ void quicksort(int min, int max, int a[]){
             p++;
         }
     }
+
+    a[min] = a[p-1];
+    a[p-1] = pivot;
+
     quicksort(min, p-1, a);
-    quicksort(p, max, a);
+    quicksort(p+1, max, a);
 }
 
